@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>虚拟DOM</title>
+</head>
+<body>
+    <span class="show-text" v-show="showText">
+        here is a span tag.
+    </span>
+</body>
+<script>
+    // 包含标签名、数据信息（attr等）、子节点、文本、对应的真实节点
+    class VNode {
+        constructor (tag, data, children, text, elm) {
+            this.tag = tag;
+            this.data = data;
+            this.children = children;
+            this.text = text;
+            this.elm = elm;
+        }
+    }
+    // 创建一个空白的节点
+    function createEmptyVNode() {
+        const node = new Node();
+        node.text = '';
+        return node;
+    }
+    // 创建一个空白的文本节点
+    function createEmptyTextVNode(val) {
+        return new Node(undefined, undefined, undefined, String(val));
+    }
+    // 克隆一个节点
+    function cloneTextVNode(val) {
+        const cloneNode = new VNode(
+            node.tag,
+            node.data,
+            node.children,
+            node.text,
+            node.elm,
+        )
+        return cloneNode;
+    }
+</script>
+</html>
